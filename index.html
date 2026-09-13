@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Ahotordwa — Your Convenience Marketplace. Get errands, shopping, pickup and delivery, digital tasks and administrative tasks handled with less hassle.">
+    <meta name="description"
+        content="Ahotordwa is your convenience marketplace. Need something done? We help you get it done.">
 
-    <meta name="theme-color" content="#123f24">
+    <meta name="keywords"
+        content="Ahotordwa, errands, taskers, services, Ghana, Takoradi, convenience marketplace">
 
-    <title>Ahotordwa — Your Convenience Marketplace</title>
+    <meta name="author" content="Ahotordwa">
+
+    <title>Ahotordwa | Your Convenience Marketplace</title>
 
     <style>
-        /* =========================================
-           AHOTORDWA WEBSITE
-           First Version
-           ========================================= */
+        /* =========================
+           RESET
+        ========================== */
 
         * {
             margin: 0;
@@ -29,8 +32,9 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            color: #222222;
+            color: #1f2937;
             background: #ffffff;
+            overflow-x: hidden;
         }
 
         a {
@@ -45,37 +49,84 @@
 
         .container {
             width: 90%;
-            max-width: 1180px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        /* =========================================
-           COLORS
-           ========================================= */
 
-        :root {
-            --green: #123f24;
-            --green-light: #1e6137;
-            --orange: #f15a24;
-            --purple: #4b176d;
-            --light: #f7f8f6;
-            --dark: #172019;
-            --white: #ffffff;
-            --gray: #666666;
-            --border: #e5e5e5;
+        /* =========================
+           ANNOUNCEMENT
+        ========================== */
+
+        .announcement {
+            background: #183b2b;
+            color: #ffffff;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            border-bottom: 2px solid #e87522;
         }
 
-        /* =========================================
-           HEADER
-           ========================================= */
+        .announcement-track {
+            display: inline-flex;
+            width: max-content;
+            animation: announcementMove 24s linear infinite;
+        }
+
+        .announcement-message {
+            padding: 11px 50px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .announcement strong {
+            color: #f59e0b;
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 8px;
+            border-radius: 50%;
+            background: #f59e0b;
+            animation: livePulse 1.4s infinite;
+        }
+
+        @keyframes announcementMove {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes livePulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.6);
+                opacity: 0.45;
+            }
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.97);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #eeeeee;
+            backdrop-filter: blur(12px);
         }
 
         .navbar {
@@ -83,18 +134,32 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 25px;
+            gap: 30px;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
+            animation: logoEnter 0.9s ease forwards;
         }
 
         .logo img {
-            width: 145px;
-            height: auto;
+            width: 155px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.04);
+        }
+
+        @keyframes logoEnter {
+            from {
+                opacity: 0;
+                transform: translateX(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .nav-links {
@@ -104,181 +169,231 @@
             list-style: none;
         }
 
+        .nav-links li {
+            opacity: 0;
+            animation: navEnter 0.6s ease forwards;
+        }
+
+        .nav-links li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .nav-links li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .nav-links li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .nav-links li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .nav-links li:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes navEnter {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .nav-links a {
             font-size: 14px;
             font-weight: 600;
-            color: var(--dark);
             transition: 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--orange);
+            color: #e87522;
         }
 
         .nav-button {
-            background: var(--green);
-            color: var(--white) !important;
-            padding: 12px 19px;
-            border-radius: 7px;
+            background: #183b2b;
+            color: #ffffff !important;
+            padding: 11px 18px;
+            border-radius: 25px;
+            transition: 0.3s ease;
         }
 
         .nav-button:hover {
-            background: var(--orange);
+            background: #e87522;
+            transform: translateY(-2px);
         }
 
         .menu-toggle {
             display: none;
             border: none;
-            background: transparent;
+            background: none;
             font-size: 28px;
             cursor: pointer;
-            color: var(--green);
         }
 
-        /* =========================================
+
+        /* =========================
            HERO
-           ========================================= */
+        ========================== */
 
         .hero {
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
             background:
                 linear-gradient(
                     135deg,
-                    #f6faf6 0%,
+                    #f5faf7 0%,
                     #ffffff 55%,
-                    #fff7f2 100%
+                    #fff6ed 100%
                 );
-            padding: 95px 0 100px;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            max-width: 720px;
+            padding: 90px 0;
+            animation: heroEnter 1s ease forwards;
+        }
+
+        @keyframes heroEnter {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tag {
+            display: inline-flex;
             align-items: center;
-            gap: 60px;
-        }
-
-        .hero-text {
-            max-width: 680px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            background: #edf5ee;
-            color: var(--green);
-            padding: 8px 14px;
+            background: #eaf5ee;
+            color: #183b2b;
+            padding: 8px 15px;
             border-radius: 30px;
-            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 20px;
+            font-size: 13px;
+            margin-bottom: 22px;
+            animation: tagFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes tagFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
         }
 
         .hero h1 {
-            font-size: clamp(42px, 6vw, 70px);
+            font-size: clamp(45px, 7vw, 76px);
             line-height: 1.05;
-            color: var(--green);
+            color: #183b2b;
             margin-bottom: 25px;
-            letter-spacing: -2px;
         }
 
         .hero h1 span {
-            color: var(--orange);
+            color: #e87522;
         }
 
         .hero p {
-            font-size: 19px;
-            color: var(--gray);
-            max-width: 610px;
-            margin-bottom: 32px;
+            font-size: 20px;
+            max-width: 620px;
+            color: #56616f;
+            margin-bottom: 35px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 15px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
             border-radius: 8px;
             font-weight: 700;
-            border: 2px solid transparent;
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: var(--orange);
-            color: var(--white);
+            background: #183b2b;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(24, 59, 43, 0.15);
         }
 
         .btn-primary:hover {
-            background: var(--green);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            background: #e87522;
+            box-shadow: 0 12px 25px rgba(232, 117, 34, 0.25);
         }
 
         .btn-secondary {
-            border-color: var(--green);
-            color: var(--green);
-            background: var(--white);
+            border: 2px solid #183b2b;
+            color: #183b2b;
         }
 
         .btn-secondary:hover {
-            background: var(--green);
-            color: var(--white);
+            background: #183b2b;
+            color: #ffffff;
+            transform: translateY(-4px);
         }
 
-        .hero-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        .hero-decoration {
+            position: absolute;
+            right: -100px;
+            bottom: -100px;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: #f59e0b;
+            opacity: 0.10;
+            animation: decorationFloat 7s ease-in-out infinite;
         }
 
-        .hero-card h3 {
-            color: var(--green);
-            margin-bottom: 18px;
-            font-size: 23px;
+        .hero-decoration::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #e87522;
+            top: -80px;
+            left: -80px;
+            opacity: 0.5;
         }
 
-        .hero-card-item {
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-            padding: 15px 0;
-            border-bottom: 1px solid #eeeeee;
+        @keyframes decorationFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-25px, -20px) rotate(8deg);
+            }
         }
 
-        .hero-card-item:last-child {
-            border-bottom: none;
-        }
 
-        .hero-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            background: #fff0e9;
-            color: var(--orange);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-
-        .hero-card-item strong {
-            display: block;
-            color: var(--dark);
-            margin-bottom: 2px;
-        }
-
-        .hero-card-item small {
-            color: var(--gray);
-        }
-
-        /* =========================================
-           GENERAL SECTIONS
-           ========================================= */
+        /* =========================
+           SECTIONS
+        ========================== */
 
         section {
             padding: 90px 0;
@@ -286,90 +401,135 @@
 
         .section-heading {
             text-align: center;
-            max-width: 720px;
+            max-width: 700px;
             margin: 0 auto 50px;
         }
 
-        .section-heading .eyebrow {
-            color: var(--orange);
-            text-transform: uppercase;
-            font-size: 13px;
+        .section-heading .small-title,
+        .small-title {
+            color: #e87522;
+            font-size: 14px;
             font-weight: 800;
-            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 10px;
         }
 
         .section-heading h2 {
-            font-size: clamp(32px, 4vw, 46px);
-            color: var(--green);
-            line-height: 1.15;
+            color: #183b2b;
+            font-size: clamp(32px, 5vw, 46px);
             margin-bottom: 15px;
         }
 
         .section-heading p {
-            color: var(--gray);
-            font-size: 17px;
+            color: #68727e;
         }
 
-        /* =========================================
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(45px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
            SERVICES
-           ========================================= */
+        ========================== */
 
         .services {
-            background: var(--white);
+            background: #ffffff;
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
         .service-card {
-            border: 1px solid var(--border);
+            padding: 28px 22px;
+            border: 1px solid #e8ece9;
             border-radius: 15px;
-            padding: 28px 20px;
-            background: var(--white);
-            transition: 0.3s ease;
+            background: #ffffff;
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 4px;
+            background: #e87522;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.35s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            border-color: #cfded2;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+            transform: translateY(-9px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.09);
         }
 
-        .service-number {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--green);
-            color: var(--white);
-            border-radius: 10px;
-            font-weight: 800;
-            margin-bottom: 20px;
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotate(-4deg);
         }
 
         .service-card h3 {
-            color: var(--green);
-            font-size: 18px;
-            line-height: 1.3;
-            margin-bottom: 12px;
+            color: #183b2b;
+            margin-bottom: 10px;
+            font-size: 19px;
         }
 
         .service-card p {
-            color: var(--gray);
+            color: #707985;
             font-size: 14px;
         }
 
-        /* =========================================
+        .services-note {
+            text-align: center;
+            margin-top: 35px;
+            color: #68727e;
+        }
+
+        .services-note strong {
+            color: #183b2b;
+        }
+
+
+        /* =========================
            HOW IT WORKS
-           ========================================= */
+        ========================== */
 
         .how-it-works {
-            background: var(--light);
+            background: #f6faf7;
         }
 
         .steps {
@@ -379,37 +539,53 @@
         }
 
         .step {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 15px;
             text-align: center;
-            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            transition: 0.35s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
         .step-number {
-            width: 58px;
-            height: 58px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: var(--orange);
-            color: var(--white);
+            width: 55px;
+            height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 21px;
+            margin: 0 auto 20px;
+            background: #183b2b;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 20px;
             font-weight: 800;
+            transition: 0.3s ease;
+        }
+
+        .step:hover .step-number {
+            background: #e87522;
+            transform: rotate(360deg);
         }
 
         .step h3 {
-            color: var(--green);
-            margin-bottom: 8px;
+            color: #183b2b;
+            margin-bottom: 10px;
         }
 
         .step p {
-            color: var(--gray);
+            color: #68727e;
             font-size: 14px;
         }
 
-        /* =========================================
+
+        /* =========================
            WHO WE HELP
-           ========================================= */
+        ========================== */
 
         .audience-grid {
             display: grid;
@@ -418,247 +594,293 @@
         }
 
         .audience-card {
-            padding: 30px;
+            padding: 35px 25px;
             border-radius: 15px;
-            background: #fafafa;
-            border: 1px solid var(--border);
+            background: #183b2b;
+            color: #ffffff;
+            transition: 0.35s ease;
+        }
+
+        .audience-card:nth-child(even) {
+            background: #e87522;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .audience-card .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+            transition: 0.3s ease;
+        }
+
+        .audience-card:hover .icon {
+            transform: scale(1.15);
         }
 
         .audience-card h3 {
-            color: var(--green);
             margin-bottom: 10px;
         }
 
         .audience-card p {
-            color: var(--gray);
             font-size: 14px;
+            opacity: 0.9;
         }
 
-        /* =========================================
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background: #183b2b;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.12);
+            animation: ctaCircle 6s ease-in-out infinite;
+        }
+
+        .cta::before {
+            width: 280px;
+            height: 280px;
+            left: -130px;
+            top: -120px;
+        }
+
+        .cta::after {
+            width: 220px;
+            height: 220px;
+            right: -100px;
+            bottom: -100px;
+            animation-delay: 1s;
+        }
+
+        @keyframes ctaCircle {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        .cta h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta .btn-primary {
+            background: #e87522;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta .btn-primary:hover {
+            background: #ffffff;
+            color: #183b2b;
+        }
+
+
+        /* =========================
            ABOUT
-           ========================================= */
-
-        .about {
-            background: var(--green);
-            color: var(--white);
-        }
+        ========================== */
 
         .about-grid {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 65px;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
         }
 
-        .about-box {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 45px;
-            border-radius: 20px;
-        }
-
-        .about-box h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .about-box p {
-            color: #e5eee7;
-        }
-
-        .about-text .eyebrow {
-            color: #ff9c76;
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-        }
-
         .about-text h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.15;
+            color: #183b2b;
+            font-size: 42px;
             margin-bottom: 20px;
         }
 
         .about-text p {
-            color: #e5eee7;
-            font-size: 17px;
+            color: #68727e;
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            margin-top: 25px;
+            padding: 20px;
+            border-left: 4px solid #e87522;
+            background: #fff8f2;
+            color: #183b2b;
+            font-weight: 700;
+        }
+
+        .about-box {
+            background: #f6faf7;
+            padding: 50px;
+            border-radius: 20px;
+            transition: 0.35s ease;
+        }
+
+        .about-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+        }
+
+        .about-box h3 {
+            color: #183b2b;
             margin-bottom: 15px;
         }
 
-        /* =========================================
-           EAGLESIGHT
-           ========================================= */
-
-        .eaglesight {
-            background: #faf8fc;
+        .about-box p {
+            color: #68727e;
         }
 
-        .eaglesight-box {
+
+        /* =========================
+           TASKER
+        ========================== */
+
+        .tasker {
+            background: #fff8f2;
+        }
+
+        .tasker-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
-            background: var(--white);
-            border: 1px solid #eadff0;
-            border-radius: 22px;
-            padding: 50px;
         }
 
-        .eaglesight-label {
-            display: inline-block;
-            color: var(--purple);
-            font-weight: 800;
-            margin-bottom: 10px;
+        .tasker-box h2 {
+            color: #183b2b;
+            font-size: 42px;
+            margin-bottom: 18px;
         }
 
-        .eaglesight h2 {
-            color: var(--purple);
-            font-size: 38px;
-            margin-bottom: 15px;
+        .tasker-box p {
+            color: #68727e;
+            margin-bottom: 25px;
         }
 
-        .eaglesight p {
-            color: var(--gray);
-            margin-bottom: 22px;
+        .tasker-list {
+            list-style: none;
+            margin-bottom: 25px;
         }
 
-        .eaglesight-services {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .eagle-service {
-            padding: 15px;
-            background: #f7f3f9;
-            border-radius: 9px;
-            color: var(--purple);
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .eaglesight-note {
-            padding: 30px;
-            background: var(--purple);
-            color: var(--white);
-            border-radius: 17px;
-        }
-
-        .eaglesight-note h3 {
+        .tasker-list li {
             margin-bottom: 12px;
-            font-size: 24px;
+            color: #374151;
         }
 
-        .eaglesight-note p {
-            color: #eee6f2;
+        .tasker-list li::before {
+            content: "✓";
+            color: #e87522;
+            font-weight: bold;
+            margin-right: 10px;
         }
 
-        /* =========================================
-           REQUEST SECTION
-           ========================================= */
 
-        .request {
-            background: #fffaf7;
-        }
-
-        .request-box {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            background: var(--white);
-            border: 1px solid #f0dfd6;
-            border-radius: 22px;
-            padding: 55px 35px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
-        }
-
-        .request-box h2 {
-            color: var(--green);
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .request-box p {
-            color: var(--gray);
-            max-width: 650px;
-            margin: 0 auto 25px;
-        }
-
-        .request-note {
-            font-size: 13px !important;
-            margin-top: 15px !important;
-        }
-
-        /* =========================================
+        /* =========================
            CONTACT
-           ========================================= */
+        ========================== */
 
         .contact {
-            background: var(--light);
+            background: #f6faf7;
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .contact-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 15px;
+            background: #ffffff;
             padding: 30px;
             text-align: center;
+            border-radius: 15px;
+            border: 1px solid #e6ece8;
+            transition: 0.35s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+        }
+
+        .contact-card .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
         }
 
         .contact-card h3 {
-            color: var(--green);
+            color: #183b2b;
             margin-bottom: 8px;
         }
 
         .contact-card p {
-            color: var(--gray);
+            color: #68727e;
             font-size: 14px;
         }
 
         .contact-card a {
-            color: var(--orange);
+            color: #e87522;
             font-weight: 700;
         }
 
-        /* =========================================
+
+        /* =========================
            FOOTER
-           ========================================= */
+        ========================== */
 
         footer {
-            background: #0c2a18;
-            color: var(--white);
-            padding: 45px 0 25px;
+            background: #10271d;
+            color: #ffffff;
+            padding: 60px 0 25px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.3fr 1fr 1fr;
-            gap: 50px;
-            padding-bottom: 35px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+            gap: 40px;
+            margin-bottom: 45px;
         }
 
-        .footer-logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 10px;
+        .footer-brand img {
+            width: 150px;
+            background: #ffffff;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
-        .footer-grid p {
-            color: #c8d5cc;
+        .footer-brand p {
+            color: #c4cec8;
             font-size: 14px;
+            max-width: 300px;
         }
 
-        .footer-column h3 {
+        footer h3 {
             margin-bottom: 15px;
             font-size: 16px;
         }
@@ -668,45 +890,142 @@
         }
 
         .footer-links li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
-            color: #c8d5cc;
+            color: #c4cec8;
             font-size: 14px;
+            transition: 0.3s;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
+            color: #f59e0b;
         }
 
-        .copyright {
-            text-align: center;
+
+        /* =========================
+           EAGLESIGHT
+        ========================== */
+
+        .eaglesight-footer {
+            padding: 20px;
+            margin-bottom: 35px;
+            border: 1px solid #30473c;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .eaglesight-footer h3 {
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+
+        .eaglesight-footer p {
+            color: #c4cec8;
+            font-size: 14px;
+            max-width: 800px;
+            margin-bottom: 10px;
+        }
+
+        .eaglesight-footer a {
+            color: #ffffff;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .eaglesight-footer a:hover {
+            color: #f59e0b;
+        }
+
+
+        /* =========================
+           SOCIAL LINKS
+        ========================== */
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #496056;
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #e87522;
+            border-color: #e87522;
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
             padding-top: 25px;
-            color: #aebbb2;
+            border-top: 1px solid #30473c;
+            text-align: center;
+            color: #9eaaa4;
             font-size: 13px;
         }
 
-        /* =========================================
-           RESPONSIVE DESIGN
-           ========================================= */
+
+        /* =========================
+           WHATSAPP
+        ========================== */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            z-index: 999;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+            animation: whatsappPulse 2.5s infinite;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            }
+
+            50% {
+                box-shadow:
+                    0 8px 25px rgba(0,0,0,0.2),
+                    0 0 0 10px rgba(37,211,102,0.10);
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
 
         @media (max-width: 1000px) {
 
-            .nav-links {
-                gap: 15px;
-            }
-
             .service-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-card {
-                max-width: 600px;
             }
 
             .steps {
@@ -717,32 +1036,21 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .about-grid,
-            .eaglesight-box {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 760px) {
+
+        @media (max-width: 768px) {
 
             .navbar {
                 min-height: 70px;
             }
 
-            .logo img {
-                width: 125px;
-            }
-
             .menu-toggle {
                 display: block;
+                color: #183b2b;
             }
 
             .nav-links {
@@ -750,226 +1058,295 @@
                 position: absolute;
                 top: 70px;
                 left: 0;
-                right: 0;
-                background: var(--white);
-                padding: 20px;
+                width: 100%;
+                background: #ffffff;
                 flex-direction: column;
                 align-items: stretch;
-                gap: 0;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+                padding: 20px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             }
 
             .nav-links.active {
                 display: flex;
+                animation: mobileMenu 0.3s ease;
             }
 
-            .nav-links li {
-                border-bottom: 1px solid #eeeeee;
-            }
+            @keyframes mobileMenu {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
 
-            .nav-links li:last-child {
-                border-bottom: none;
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
 
             .nav-links a {
                 display: block;
-                padding: 13px 5px;
-            }
-
-            .nav-button {
-                text-align: center;
-                margin-top: 8px;
+                padding: 10px;
             }
 
             .hero {
-                padding: 65px 0 70px;
+                min-height: 600px;
+            }
+
+            .hero-content {
+                padding: 70px 0;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .about-grid,
+            .tasker-box {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 65px 0;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .announcement-message {
+                font-size: 12px;
+                padding: 10px 35px;
+            }
+
+            .logo img {
+                width: 130px;
             }
 
             .hero h1 {
-                letter-spacing: -1px;
+                font-size: 48px;
             }
 
-            section {
-                padding: 70px 0;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
             }
 
             .service-grid,
             .steps,
-            .audience-grid,
-            .eaglesight-services {
+            .audience-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-box,
-            .eaglesight-box,
-            .request-box {
-                padding: 30px 22px;
+            .about-text h2,
+            .tasker-box h2 {
+                font-size: 34px;
+            }
+
+            .about-box {
+                padding: 30px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+            }
+
+            .whatsapp {
+                width: 52px;
+                height: 52px;
+                right: 16px;
+                bottom: 16px;
             }
         }
 
-        @media (max-width: 480px) {
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+        /* =========================
+           REDUCED MOTION
+        ========================== */
 
-            .hero-buttons .btn {
-                text-align: center;
-                width: 100%;
-            }
+        @media (prefers-reduced-motion: reduce) {
 
-            .request-box h2 {
-                font-size: 32px;
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================================
-         HEADER
-         ========================================= -->
+    <!-- =========================
+         LIVE ANNOUNCEMENT
+    ========================== -->
+
+    <div class="announcement">
+
+        <div class="announcement-track">
+
+            <div class="announcement-message">
+                <span class="live-dot"></span>
+                🎁 Refer a friend to Ahotordwa and earn
+                <strong>10% off</strong>
+                your next service fee when your referral completes their first paid order.
+            </div>
+
+            <div class="announcement-message">
+                <span class="live-dot"></span>
+                🎁 Refer a friend to Ahotordwa and earn
+                <strong>10% off</strong>
+                your next service fee when your referral completes their first paid order.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <header>
+
         <div class="container navbar">
 
             <a href="#home" class="logo">
-                <!-- We will connect your actual logo file here later -->
-                <div style="font-size: 28px; font-weight: 800; color: #4b176d;">
-                    ahotordwa
-                </div>
+                <img src="ahotordwa.png" alt="Ahotordwa Logo">
             </a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+            <button
+                class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Open menu">
                 ☰
             </button>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#who-we-help">Who We Help</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+
                 <li>
-                    <a href="#request" class="nav-button">Request a Service</a>
+                    <a href="#home">Home</a>
                 </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#how-it-works">How It Works</a>
+                </li>
+
+                <li>
+                    <a href="#who-we-help">Who We Help</a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSc0DogpBmBM-ytBExHJoe-CiLQgB-WlJPNa8K_ogFQcKW00dw/viewform?usp=header"
+                        target="_blank"
+                        class="nav-button">
+                        Request a Service
+                    </a>
+                </li>
+
             </ul>
 
         </div>
+
     </header>
 
 
-    <!-- =========================================
-         HERO
-         ========================================= -->
+    <!-- =========================
+         MAIN
+    ========================== -->
 
     <main>
 
+
+        <!-- HERO -->
+
         <section class="hero" id="home">
 
-            <div class="container hero-content">
+            <div class="container">
 
-                <div class="hero-text">
+                <div class="hero-content">
 
-                    <span class="hero-label">
-                        Your Convenience Marketplace 🇬🇭
-                    </span>
+                    <div class="hero-tag">
+                        🇬🇭 Your Convenience Marketplace
+                    </div>
 
                     <h1>
-                        Need something done?
-                        <span>We help you get it done.</span>
+                        Need something <span>done?</span>
                     </h1>
 
                     <p>
-                        Ahotordwa makes everyday tasks easier by connecting
-                        people and businesses with convenient support for
-                        errands, shopping, deliveries, digital tasks and
-                        administrative work.
+                        We help you get it done. Ahotordwa connects customers
+                        with people who can handle errands, tasks and everyday
+                        services.
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="#request" class="btn btn-primary">
+
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSc0DogpBmBM-ytBExHJoe-CiLQgB-WlJPNa8K_ogFQcKW00dw/viewform?usp=header"
+                            target="_blank"
+                            class="btn btn-primary">
                             Request a Service
                         </a>
 
-                        <a href="#services" class="btn btn-secondary">
-                            Explore Services
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdtXMIPjoGnAJbl5dhpmcyAfxWSxTCuPNPRjpJUkbViibqZIg/viewform?usp=publish-editor"
+                            target="_blank"
+                            class="btn btn-secondary">
+                            Become a Tasker
                         </a>
-                    </div>
 
-                </div>
-
-
-                <div class="hero-card">
-
-                    <h3>What can we help with?</h3>
-
-                    <div class="hero-card-item">
-                        <div class="hero-icon">1</div>
-                        <div>
-                            <strong>Errands & Tasks</strong>
-                            <small>Let us handle time-consuming tasks.</small>
-                        </div>
-                    </div>
-
-                    <div class="hero-card-item">
-                        <div class="hero-icon">2</div>
-                        <div>
-                            <strong>Shopping</strong>
-                            <small>Market, grocery and shopping runs.</small>
-                        </div>
-                    </div>
-
-                    <div class="hero-card-item">
-                        <div class="hero-icon">3</div>
-                        <div>
-                            <strong>Pickup & Delivery</strong>
-                            <small>Move items where they need to go.</small>
-                        </div>
-                    </div>
-
-                    <div class="hero-card-item">
-                        <div class="hero-icon">4</div>
-                        <div>
-                            <strong>Digital & Admin</strong>
-                            <small>Get online and office tasks handled.</small>
-                        </div>
                     </div>
 
                 </div>
 
             </div>
 
+            <div class="hero-decoration"></div>
+
         </section>
 
 
-        <!-- =========================================
-             SERVICES
-             ========================================= -->
+        <!-- SERVICES -->
 
         <section class="services" id="services">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
-                    <div class="eyebrow">Our Services</div>
+                    <div class="small-title">
+                        What we can help with
+                    </div>
 
                     <h2>
-                        Practical help for everyday needs
+                        Services for everyday needs
                     </h2>
 
                     <p>
-                        Tell us what you need done and we will help make
-                        the process easier.
+                        From simple errands to skilled services,
+                        tell us what you need and we'll work to help you get it done.
                     </p>
 
                 </div>
@@ -977,76 +1354,146 @@
 
                 <div class="service-grid">
 
-                    <div class="service-card">
-                        <div class="service-number">01</div>
-                        <h3>General Errands & Small Tasks</h3>
+                    <div class="service-card reveal">
+                        <div class="service-icon">🧹</div>
+                        <h3>Home & Cleaning</h3>
                         <p>
-                            Pickups, drop-offs, document collection,
-                            submissions, returns, queueing and other
-                            everyday tasks.
+                            Cleaning, laundry, ironing, car washing,
+                            home organization and more.
                         </p>
                     </div>
 
-                    <div class="service-card">
-                        <div class="service-number">02</div>
-                        <h3>Shopping & Market Runs</h3>
+                    <div class="service-card reveal">
+                        <div class="service-icon">🔧</div>
+                        <h3>Repairs & Skilled Trades</h3>
                         <p>
-                            Grocery shopping, market runs, supermarket
-                            purchases and shopping from multiple vendors.
+                            Plumbing, electrical, carpentry, welding,
+                            masonry, painting and other skilled services.
                         </p>
                     </div>
 
-                    <div class="service-card">
-                        <div class="service-number">03</div>
-                        <h3>Pickup & Delivery</h3>
+                    <div class="service-card reveal">
+                        <div class="service-icon">🧵</div>
+                        <h3>Fashion & Craft</h3>
                         <p>
-                            Help with moving documents, small packages,
-                            groceries, personal items and business items.
+                            Tailoring, alterations, dressmaking,
+                            shoemaking, shoe repair and craft services.
                         </p>
                     </div>
 
-                    <div class="service-card">
-                        <div class="service-number">04</div>
-                        <h3>Digital & Online Assistance</h3>
+                    <div class="service-card reveal">
+                        <div class="service-icon">💇</div>
+                        <h3>Beauty & Personal Care</h3>
                         <p>
-                            Data entry, typing, online research, information
-                            gathering, forms, uploads and basic online tasks.
+                            Hairdressing, barbering, braiding,
+                            makeup, nails and other personal services.
                         </p>
                     </div>
 
-                    <div class="service-card">
-                        <div class="service-number">05</div>
-                        <h3>Administrative & Office Tasks</h3>
+                    <div class="service-card reveal">
+                        <div class="service-icon">🚗</div>
+                        <h3>Automotive</h3>
                         <p>
-                            Spreadsheet updates, document preparation,
-                            organization, filing and basic administrative
-                            support.
+                            Car washing, detailing, mechanics,
+                            auto electrical, tyres and vehicle support.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">🛍️</div>
+                        <h3>Errands, Shopping & Delivery</h3>
+                        <p>
+                            Market runs, shopping, pickups,
+                            document collection and general errands.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">🌿</div>
+                        <h3>Outdoor & Property</h3>
+                        <p>
+                            Gardening, landscaping, grass cutting,
+                            yard cleaning and property maintenance.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">💻</div>
+                        <h3>Business & Digital</h3>
+                        <p>
+                            Virtual assistance, data entry, research,
+                            graphic design, web support and administration.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">📸</div>
+                        <h3>Events & Creative</h3>
+                        <p>
+                            Photography, videography, decoration,
+                            event support, catering, DJ and MC services.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">🤝</div>
+                        <h3>Personal & Care Services</h3>
+                        <p>
+                            Personal assistance, household assistance,
+                            caregiving and other support services.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">🛡️</div>
+                        <h3>Security</h3>
+                        <p>
+                            Event, residential, business and property
+                            security through suitable providers.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-icon">📚</div>
+                        <h3>Education & Training</h3>
+                        <p>
+                            Tutoring, digital skills, vocational training,
+                            languages, music and exam preparation.
                         </p>
                     </div>
 
                 </div>
+
+
+                <p class="services-note reveal">
+                    <strong>Can't find exactly what you need?</strong>
+                    Tell us what you need and we'll work to find a suitable provider.
+                </p>
 
             </div>
 
         </section>
 
 
-        <!-- =========================================
-             HOW IT WORKS
-             ========================================= -->
+        <!-- HOW IT WORKS -->
 
         <section class="how-it-works" id="how-it-works">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
-                    <div class="eyebrow">Simple Process</div>
+                    <div class="small-title">
+                        Simple process
+                    </div>
 
-                    <h2>How Ahotordwa works</h2>
+                    <h2>
+                        How Ahotordwa works
+                    </h2>
 
                     <p>
-                        Getting help should not be complicated.
+                        Getting help should be simple. Tell us what you need,
+                        and we'll help connect you with the right person.
                     </p>
 
                 </div>
@@ -1054,40 +1501,52 @@
 
                 <div class="steps">
 
-                    <div class="step">
+                    <div class="step reveal">
+
                         <div class="step-number">1</div>
-                        <h3>Tell us</h3>
+
+                        <h3>Request</h3>
+
                         <p>
-                            Tell us what you need done and provide
-                            the necessary details.
+                            Tell Ahotordwa what you need through our service request form.
                         </p>
+
                     </div>
 
-                    <div class="step">
+                    <div class="step reveal">
+
                         <div class="step-number">2</div>
-                        <h3>We confirm</h3>
+
+                        <h3>We Match</h3>
+
                         <p>
-                            We review the request and confirm the
-                            service, timing and cost.
+                            We look for an available and suitable Tasker or provider.
                         </p>
+
                     </div>
 
-                    <div class="step">
+                    <div class="step reveal">
+
                         <div class="step-number">3</div>
-                        <h3>We handle it</h3>
+
+                        <h3>Get It Done</h3>
+
                         <p>
-                            Ahotordwa handles the task or coordinates
-                            the appropriate independent provider.
+                            The assigned Tasker or provider handles the requested task.
                         </p>
+
                     </div>
 
-                    <div class="step">
+                    <div class="step reveal">
+
                         <div class="step-number">4</div>
-                        <h3>You get confirmation</h3>
+
+                        <h3>Complete</h3>
+
                         <p>
-                            Once the task is completed, you receive
-                            confirmation.
+                            The task is completed and the transaction is closed.
                         </p>
+
                     </div>
 
                 </div>
@@ -1097,23 +1556,25 @@
         </section>
 
 
-        <!-- =========================================
-             WHO WE HELP
-             ========================================= -->
+        <!-- WHO WE HELP -->
 
         <section id="who-we-help">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
-                    <div class="eyebrow">Who We Help</div>
+                    <div class="small-title">
+                        Who we serve
+                    </div>
 
-                    <h2>Convenience for different kinds of customers</h2>
+                    <h2>
+                        Built for people who need things done
+                    </h2>
 
                     <p>
-                        Whether you are busy, far away or simply need
-                        an extra hand, Ahotordwa can help.
+                        Ahotordwa is designed to make getting help easier
+                        for individuals, businesses, students and people abroad.
                     </p>
 
                 </div>
@@ -1121,35 +1582,39 @@
 
                 <div class="audience-grid">
 
-                    <div class="audience-card">
+                    <div class="audience-card reveal">
+                        <div class="icon">👤</div>
                         <h3>Individuals</h3>
                         <p>
-                            Save time by getting everyday errands and
-                            tasks handled for you.
+                            Get help with everyday errands,
+                            home services and personal tasks.
                         </p>
                     </div>
 
-                    <div class="audience-card">
+                    <div class="audience-card reveal">
+                        <div class="icon">🏢</div>
                         <h3>Businesses</h3>
                         <p>
-                            Get support with office errands,
-                            administrative work and other tasks.
+                            Get support with errands, administration,
+                            maintenance and other business needs.
                         </p>
                     </div>
 
-                    <div class="audience-card">
+                    <div class="audience-card reveal">
+                        <div class="icon">🎓</div>
                         <h3>Students</h3>
                         <p>
-                            Get help with errands, shopping,
-                            documents and useful digital tasks.
+                            Find help with everyday tasks,
+                            errands and useful digital services.
                         </p>
                     </div>
 
-                    <div class="audience-card">
+                    <div class="audience-card reveal">
+                        <div class="icon">🌍</div>
                         <h3>Diaspora</h3>
                         <p>
-                            Need something handled in Ghana while
-                            you are abroad? We can help coordinate it.
+                            Get local tasks and errands handled
+                            for you in Ghana.
                         </p>
                     </div>
 
@@ -1160,140 +1625,160 @@
         </section>
 
 
-        <!-- =========================================
-             ABOUT
-             ========================================= -->
+        <!-- CTA -->
 
-        <section class="about" id="about">
+        <section class="cta">
 
-            <div class="container about-grid">
+            <div class="container reveal">
 
-                <div class="about-box">
+                <h2>
+                    Have something that needs doing?
+                </h2>
 
-                    <h3>
-                        Your time matters.
-                    </h3>
+                <p>
+                    Tell us what you need and Ahotordwa will work to connect
+                    you with someone who can help.
+                </p>
 
-                    <p>
-                        Some things are small but still take time,
-                        energy and effort. Ahotordwa exists to make
-                        those things easier to handle.
-                    </p>
-
-                </div>
-
-
-                <div class="about-text">
-
-                    <div class="eyebrow">About Ahotordwa</div>
-
-                    <h2>
-                        Your Convenience Marketplace
-                    </h2>
-
-                    <p>
-                        Ahotordwa helps individuals and businesses
-                        get things done without the hassle.
-                    </p>
-
-                    <p>
-                        We provide convenient support for
-                        <strong>errands, shopping, pickup & delivery,
-                        digital tasks and administrative tasks.</strong>
-                    </p>
-
-                    <p>
-                        Whether you need something picked up,
-                        purchased, submitted, researched, typed or
-                        handled, Ahotordwa helps make it easier.
-                    </p>
-
-                </div>
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc0DogpBmBM-ytBExHJoe-CiLQgB-WlJPNa8K_ogFQcKW00dw/viewform?usp=header"
+                    target="_blank"
+                    class="btn btn-primary">
+                    Request a Service
+                </a>
 
             </div>
 
         </section>
 
 
-        <!-- =========================================
-             EAGLESIGHT KREATION
-             ========================================= -->
+        <!-- ABOUT -->
 
-        <section class="eaglesight">
+        <section id="about">
 
             <div class="container">
 
-                <div class="eaglesight-box">
+                <div class="about-grid">
 
-                    <div>
+                    <div class="about-text reveal">
 
-                        <span class="eaglesight-label">
-                            Need Professional Business Support?
-                        </span>
+                        <div class="small-title">
+                            About Ahotordwa
+                        </div>
 
                         <h2>
-                            Eaglesight Kreation
+                            Your convenience, connected.
                         </h2>
 
                         <p>
-                            Through our sister company, Eaglesight
-                            Kreation provides professional business
-                            support through an agency model working
-                            with vetted freelancers.
+                            Ahotordwa is a convenience marketplace designed
+                            to connect customers with people who can get tasks
+                            and services done.
                         </p>
 
+                        <p>
+                            Whether you need an errand handled, a skilled
+                            service provider, digital support or everyday
+                            assistance, Ahotordwa helps you find the right person.
+                        </p>
 
-                        <div class="eaglesight-services">
-
-                            <div class="eagle-service">
-                                Graphic Design
-                            </div>
-
-                            <div class="eagle-service">
-                                Web Design & Development
-                            </div>
-
-                            <div class="eagle-service">
-                                Virtual Assistance
-                            </div>
-
-                            <div class="eagle-service">
-                                AI Business Support
-                            </div>
-
+                        <div class="about-highlight">
+                            Need something done? We help you get it done.
                         </div>
+
+                    </div>
+
+
+                    <div class="about-box reveal">
+
+                        <h3>
+                            More than an errand service
+                        </h3>
+
+                        <p>
+                            Ahotordwa is being built as a marketplace where
+                            people with different skills and abilities can
+                            connect with customers who need their services.
+                        </p>
 
                         <br>
 
+                        <p>
+                            Our marketplace will grow alongside the needs
+                            of our customers and the Taskers who join us.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TASKER -->
+
+        <section class="tasker" id="tasker">
+
+            <div class="container">
+
+                <div class="tasker-box">
+
+                    <div class="reveal">
+
+                        <div class="small-title">
+                            Join the marketplace
+                        </div>
+
+                        <h2>
+                            Have a skill? Become a Tasker.
+                        </h2>
+
+                        <p>
+                            Ahotordwa gives people an opportunity to connect
+                            their skills with customers who need help.
+                        </p>
+
+                        <ul class="tasker-list">
+
+                            <li>Apply through our Tasker form</li>
+
+                            <li>Complete Ahotordwa's verification process</li>
+
+                            <li>Receive suitable job opportunities</li>
+
+                            <li>Complete jobs and earn</li>
+
+                        </ul>
+
                         <a
-                            href="https://kreationx.github.io/portfolio/"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdtXMIPjoGnAJbl5dhpmcyAfxWSxTCuPNPRjpJUkbViibqZIg/viewform?usp=publish-editor"
                             target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-secondary"
-                        >
-                            Visit Eaglesight Kreation
+                            class="btn btn-primary">
+                            Become a Tasker
                         </a>
 
                     </div>
 
 
-                    <div class="eaglesight-note">
+                    <div class="about-box reveal">
 
                         <h3>
-                            Two businesses. Different needs.
+                            Who can become a Tasker?
                         </h3>
 
                         <p>
-                            Ahotordwa focuses on convenience,
-                            errands and everyday tasks.
+                            A Tasker does not need a university degree.
+                            What matters is having a legitimate skill,
+                            ability or willingness to complete suitable tasks.
                         </p>
 
                         <br>
 
                         <p>
-                            Eaglesight Kreation focuses on
-                            professional digital and business
-                            support.
+                            Applicants are reviewed and verified before
+                            becoming active Ahotordwa Taskers.
                         </p>
 
                     </div>
@@ -1305,67 +1790,25 @@
         </section>
 
 
-        <!-- =========================================
-             REQUEST A SERVICE
-             ========================================= -->
-
-        <section class="request" id="request">
-
-            <div class="container">
-
-                <div class="request-box">
-
-                    <div class="section-heading" style="margin-bottom: 20px;">
-
-                        <div class="eyebrow">Get Started</div>
-
-                        <h2>
-                            Need something done?
-                        </h2>
-
-                        <p>
-                            Tell Ahotordwa what you need and we will
-                            review your request and get back to you.
-                        </p>
-
-                    </div>
-
-
-                    <!-- Temporary link.
-                         We will replace # with your Google Form URL. -->
-
-                    <a href="#" class="btn btn-primary" id="requestButton">
-                        Request a Service
-                    </a>
-
-                    <p class="request-note">
-                        Your request form will be connected here.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             CONTACT
-             ========================================= -->
+        <!-- CONTACT -->
 
         <section class="contact" id="contact">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
-                    <div class="eyebrow">Contact</div>
+                    <div class="small-title">
+                        Get in touch
+                    </div>
 
-                    <h2>Let's get things done</h2>
+                    <h2>
+                        Contact Ahotordwa
+                    </h2>
 
                     <p>
-                        Reach out to Ahotordwa for service requests
-                        and business enquiries.
+                        Need help or want to learn more?
+                        We're here to help.
                     </p>
 
                 </div>
@@ -1373,29 +1816,48 @@
 
                 <div class="contact-grid">
 
-                    <div class="contact-card">
+                    <div class="contact-card reveal">
+
+                        <div class="icon">💬</div>
+
+                        <h3>WhatsApp</h3>
+
+                        <p>
+                            <a
+                                href="https://wa.me/233202840028"
+                                target="_blank">
+                                020 284 0028
+                            </a>
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card reveal">
+
+                        <div class="icon">✉️</div>
+
                         <h3>Email</h3>
+
                         <p>
                             <a href="mailto:ahotordwagh@gmail.com">
                                 ahotordwagh@gmail.com
                             </a>
                         </p>
+
                     </div>
 
-                    <div class="contact-card">
-                        <h3>Service Requests</h3>
-                        <p>
-                            Use our request form to tell us what
-                            you need done.
-                        </p>
-                    </div>
 
-                    <div class="contact-card">
-                        <h3>Business Support</h3>
+                    <div class="contact-card reveal">
+
+                        <div class="icon">📍</div>
+
+                        <h3>Location</h3>
+
                         <p>
-                            Need professional digital support?
-                            Ask about Eaglesight Kreation.
+                            Effiakuma – Takoradi, Ghana
                         </p>
+
                     </div>
 
                 </div>
@@ -1407,9 +1869,9 @@
     </main>
 
 
-    <!-- =========================================
+    <!-- =========================
          FOOTER
-         ========================================= -->
+    ========================== -->
 
     <footer>
 
@@ -1417,57 +1879,187 @@
 
             <div class="footer-grid">
 
-                <div>
 
-                    <div class="footer-logo">
-                        ahotordwa
-                    </div>
+                <!-- BRAND -->
+
+                <div class="footer-brand">
+
+                    <img
+                        src="ahotordwa.png"
+                        alt="Ahotordwa Logo">
 
                     <p>
-                        Your Convenience Marketplace.
-                    </p>
-
-                    <p>
+                        Ahotordwa — Your Convenience Marketplace.
                         Need something done? We help you get it done.
                     </p>
 
                 </div>
 
 
-                <div class="footer-column">
+                <!-- EXPLORE -->
 
-                    <h3>Quick Links</h3>
+                <div>
+
+                    <h3>Explore</h3>
 
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#who-we-help">Who We Help</a></li>
-                        <li><a href="#about">About</a></li>
+
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="#how-it-works">How It Works</a>
+                        </li>
+
+                        <li>
+                            <a href="#who-we-help">Who We Help</a>
+                        </li>
+
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+
                     </ul>
 
                 </div>
 
 
-                <div class="footer-column">
+                <!-- GET STARTED -->
 
-                    <h3>Services</h3>
+                <div>
+
+                    <h3>Get Started</h3>
 
                     <ul class="footer-links">
-                        <li><a href="#services">Errands & Tasks</a></li>
-                        <li><a href="#services">Shopping</a></li>
-                        <li><a href="#services">Pickup & Delivery</a></li>
-                        <li><a href="#services">Digital Assistance</a></li>
-                        <li><a href="#services">Admin Tasks</a></li>
+
+                        <li>
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSc0DogpBmBM-ytBExHJoe-CiLQgB-WlJPNa8K_ogFQcKW00dw/viewform?usp=header"
+                                target="_blank">
+                                Request a Service
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSdtXMIPjoGnAJbl5dhpmcyAfxWSxTCuPNPRjpJUkbViibqZIg/viewform?usp=publish-editor"
+                                target="_blank">
+                                Become a Tasker
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact">
+                                Contact Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://wa.me/233202840028"
+                                target="_blank">
+                                WhatsApp
+                            </a>
+                        </li>
+
                     </ul>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+
+                <div>
+
+                    <h3>Follow Ahotordwa</h3>
+
+                    <div class="social-links">
+
+                        <a
+                            href="https://www.linkedin.com/company/ahotordwa/"
+                            target="_blank"
+                            aria-label="LinkedIn">
+                            in
+                        </a>
+
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61573957233232"
+                            target="_blank"
+                            aria-label="Facebook">
+                            f
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/ahotordwaerrands/"
+                            target="_blank"
+                            aria-label="Instagram">
+                            ig
+                        </a>
+
+                        <a
+                            href="https://x.com/ahotordwa/"
+                            target="_blank"
+                            aria-label="X">
+                            X
+                        </a>
+
+                        <a
+                            href="https://youtube.com/@ahotordwa"
+                            target="_blank"
+                            aria-label="YouTube">
+                            ▶
+                        </a>
+
+                        <a
+                            href="https://www.tiktok.com/@ahotordwa"
+                            target="_blank"
+                            aria-label="TikTok">
+                            ♪
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <div class="copyright">
-                © 2026 Ahotordwa. All rights reserved.
+            <!-- EAGLESIGHT KREATION -->
+
+            <div class="eaglesight-footer reveal">
+
+                <h3>
+                    Eaglesight Kreation
+                </h3>
+
+                <p>
+                    A creative and digital solutions agency providing
+                    graphic design, branding, digital support and creative
+                    services.
+                </p>
+
+                <a
+                    href="https://kreationx.github.io/portfolio/"
+                    target="_blank">
+                    Visit Eaglesight Kreation →
+                </a>
+
+            </div>
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Ahotordwa. All rights reserved.
+                </p>
+
             </div>
 
         </div>
@@ -1475,48 +2067,86 @@
     </footer>
 
 
-    <!-- =========================================
+    <!-- =========================
+         WHATSAPP
+    ========================== -->
+
+    <a
+        href="https://wa.me/233202840028"
+        target="_blank"
+        class="whatsapp"
+        aria-label="Chat with Ahotordwa on WhatsApp">
+        💬
+    </a>
+
+
+    <!-- =========================
          JAVASCRIPT
-         ========================================= -->
+    ========================== -->
 
     <script>
 
-        // Mobile navigation
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
+        /* MOBILE MENU */
 
-        menuToggle.addEventListener("click", function () {
+        function toggleMenu() {
+
+            const navLinks = document.getElementById("navLinks");
+
             navLinks.classList.toggle("active");
-        });
+
+        }
 
 
-        // Close mobile menu after clicking a navigation link
-        const navigationLinks = document.querySelectorAll(".nav-links a");
+        /* CLOSE MOBILE MENU AFTER CLICK */
 
-        navigationLinks.forEach(function (link) {
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
 
-            link.addEventListener("click", function () {
-                navLinks.classList.remove("active");
+            link.addEventListener("click", function() {
+
+                document
+                    .getElementById("navLinks")
+                    .classList
+                    .remove("active");
+
             });
 
         });
 
 
-        // Temporary request button
-        // We will replace this with your Google Form later.
-        const requestButton = document.getElementById("requestButton");
+        /* SCROLL REVEAL ANIMATION */
 
-        requestButton.addEventListener("click", function (event) {
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
-            if (requestButton.getAttribute("href") === "#") {
+        const revealObserver =
+            new IntersectionObserver(
 
-                event.preventDefault();
+                function(entries, observer) {
 
-                alert(
-                    "The Ahotordwa service request form will be connected here soon."
-                );
+                    entries.forEach(function(entry) {
 
-            }
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(function(element) {
+
+            revealObserver.observe(element);
 
         });
 
