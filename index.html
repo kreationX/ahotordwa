@@ -2145,15 +2145,14 @@
             const details = document.getElementById("customerDetails").value.trim() || "None provided";
 
             const message = [
-                "NEW SERVICE REQUEST — AHOTORDWA\nPlease coordinate this request and collect quotations from suitable Taskers. Do not share the customer's phone number with Taskers unless the customer agrees.",
+                "NEW SERVICE REQUEST — AHOTORDWA\n,
                 "Name: " + name,
                 "Phone: " + phone,
                 "Service needed: " + service,
                 "Location: " + location,
                 "Preferred date/time: " + preferredTime,
                 "Additional details: " + details,
-                "TASKER INSTRUCTIONS: Reply privately to Ahotordwa with your quotation, availability, and any conditions. Do not contact the customer directly. Ahotordwa will relay your quotation to the customer."
-            ].join("\n");
+                ].join("\n");
 
             window.open("https://wa.me/233201046816?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
         });
